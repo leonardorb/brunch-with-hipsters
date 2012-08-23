@@ -1,5 +1,12 @@
 exports.config =
     # See docs at http://brunch.readthedocs.org/en/latest/config.html.
+    coffeelint:
+        pattern: /^app\/.*\.coffee$/
+        options:
+            indentation:
+                value: 4
+                level: "error"
+
     files:
         javascripts:
             joinTo:
@@ -17,10 +24,12 @@ exports.config =
         stylesheets:
             joinTo: 'stylesheets/app.css'
             order:
-                before: ['vendor/styles/normalize.css']
+                before: [
+                    'vendor/styles/normalize.css'
+                    'vendor/styles/bootstrap.min.css'
+                ]
                 after: [
                     'vendor/styles/helpers.css'
-                    'vendor/styles/bootstrap.min.css'
                     'vendor/styles/bootstrap-responsive.min.css'
                 ]
 
