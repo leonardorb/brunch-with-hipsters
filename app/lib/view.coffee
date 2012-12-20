@@ -1,27 +1,27 @@
 module.exports = class View extends Backbone.View
-    tagName: 'section'
+  tagName: 'section'
 
-    template: ->
+  template: ->
 
-    initialize: ->
-        @render()
+  initialize: ->
+    @render()
 
-    getRenderData: ->
-        @model?.toJSON()
+  getRenderData: ->
+    @model?.toJSON()
 
-    render: ->
-        # console.debug "Rendering #{@constructor.name}", @
-        @beforeRender()
-        @$el.html @template @getRenderData()
-        @afterRender()
-        @
+  render: ->
+    # console.debug "Rendering #{@constructor.name}", @
+    @beforeRender()
+    @$el.html @template @getRenderData()
+    @afterRender()
+    @
 
-    beforeRender: ->
+  beforeRender: ->
 
-    afterRender: ->
+  afterRender: ->
 
-    destroy: ->
-        @undelegateEvents()
-        @$el.removeData().unbind()
-        @remove()
-        Backbone.View::remove.call @
+  destroy: ->
+    @undelegateEvents()
+    @$el.removeData().unbind()
+    @remove()
+    Backbone.View::remove.call @
